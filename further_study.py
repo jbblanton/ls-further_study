@@ -15,8 +15,12 @@ def custom_len(input_list):
         8
 
     """
+    count = 0
 
-    return 0
+    for ele in input_list:
+        count += 1
+
+    return count
 
 
 # For the next four exercises, you'll need to be clever and think about ways
@@ -43,7 +47,7 @@ def custom_append(input_list, value):
         True
 
     """
-
+    input_list += [value]
     pass
 
 
@@ -62,7 +66,8 @@ def custom_extend(input_list, second_list):
         True
 
     """
-
+    input_list += second_list
+    
     pass
 
 
@@ -80,7 +85,7 @@ def custom_insert(input_list, index, value):
         True
 
     """
-
+    input_list = input_list[:index] + [value] + input_list[index:]
     pass
 
 
@@ -99,7 +104,9 @@ def custom_remove(input_list, value):
         True
 
     """
-
+    for ele in input_list:
+        if ele == value:
+            ele = []
     pass
 
 
@@ -119,7 +126,7 @@ def custom_pop(input_list):
 
     """
 
-    return None
+    return input_list[-1]
 
 
 def custom_index(input_list, value):
@@ -134,8 +141,11 @@ def custom_index(input_list, value):
         1
 
     """
-
-    return 0
+    for idx, ele in input_list:
+        if value == ele:
+            return idx
+            break
+    
 
 
 def custom_count(input_list, value):
@@ -150,8 +160,13 @@ def custom_count(input_list, value):
         2
 
     """
+    count = 0
 
-    return 0
+    for ele in input_list:
+        if ele == value:
+            count += 1
+
+    return count
 
 
 def custom_reverse(input_list):
@@ -169,6 +184,7 @@ def custom_reverse(input_list):
         True
 
     """
+    input_list[::-1]
 
     pass
 
@@ -189,8 +205,16 @@ def custom_contains(input_list, value):
         True
 
     """
+    contains = False
+    for ele in input_list:
+        while contains is False:
+            if ele == value:
+                return True
+                break
+            else:
+                return False
 
-    return None
+    
 
 
 def custom_equality(some_list, another_list):
@@ -208,8 +232,12 @@ def custom_equality(some_list, another_list):
         False
 
     """
+    if some_list[0] == another_list[0] and some_list[1] == another_list[1] and some_list[2] == another_list[2]:
+        return True
+    else:
+        return False
+   
 
-    return None
 
 
 # This is the part were we actually run the doctests.
