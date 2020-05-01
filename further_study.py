@@ -132,10 +132,10 @@ def custom_pop(input_list):
         ['Jan', 'Feb']
 
     """
-    
+    last = input_list[-1]
     input_list.remove(input_list[-1])
 
-    return 
+    return last
 
 
 def custom_index(input_list, value):
@@ -192,7 +192,13 @@ def custom_reverse(input_list):
         True
 
     """
-    input_list = input_list[::-1]
+    temp_list = [input_list[-1]]
+
+    ran = len(input_list) - 2
+    for idx in range(ran, 0, -1):
+        temp_list.append(input_list[idx])
+
+    input_list = temp_list + [input_list[0]]
 
     pass
 
@@ -213,15 +219,15 @@ def custom_contains(input_list, value):
         True
 
     """
-    contains = False
+    count = 0
     for ele in input_list:
-        while contains is False:
-            if ele == value:
-                return True
-                break
-            else:
-                return False
+        if ele == value:
+            count += 1
 
+    if count >= 1:
+        return True
+    else:
+        return False
     
 
 
